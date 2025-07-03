@@ -1,3 +1,29 @@
+# 🚘 Car Blog Web App
+
+A modern, responsive Car Blog application built with **Next.js** and **Tailwind CSS**. It allows users to browse car posts, view detailed blog content, learn about the blog, and submit messages via a contact form.
+
+---
+
+## 📸 Features
+
+- 📰 List of latest car blog posts
+- 🚗 Blog detail pages with full content
+- 👤 About page for blog overview
+- ✉️ Contact form for user messages
+- 📱 Fully responsive design
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Routing:** Next.js App Router
+- **Icons:** Lucide React (or Font Awesome)
+- **Data:** JSONPlaceholder (mock API)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
