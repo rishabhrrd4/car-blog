@@ -24,58 +24,69 @@ const CarPostCard: React.FC<CarPostCardProps> = ({
 
     return (
         <Link href={`/posts/${id}`}>
-            <div
-                className="relative rounded-2xl shadow-lg overflow-hidden bg-white cursor-pointer flex flex-col h-[420px] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl border border-gray-100"
+            <article
+                className="group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                {/* Image Container with Gradient Overlay */}
-                <div className="relative w-full h-52">
-                    <img
-                        src={imageUrl}
-                        alt={title}
-                        className="w-full h-full object-cover transition-transform duration-300"
-                        style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
-                        onError={(e) => {
-                            e.currentTarget.src = 'https://via.placeholder.com/600x400?text=Car+Image';
-                        }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
-
-                {/* Content Container */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div className="flex justify-between items-start mb-2">
-                            <h2 className="text-xl font-bold text-gray-900 line-clamp-2 leading-tight">{title}</h2>
-                            {/*<span className="text-xs text-gray-500">{date}</span>*/}
-                        </div>
-                        <p className="text-gray-600 text-sm mt-2 line-clamp-3 leading-relaxed">{description}</p>
+                <div className="flex flex-col md:flex-row">
+                    {/* Image Container */}
+                    <div className="relative w-full md:w-80 h-48 md:h-64 flex-shrink-0 overflow-hidden">
+                        <img
+                            src={imageUrl}
+                            alt={title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            onError={(e) => {
+                                e.currentTarget.src = 'https://via.placeholder.com/320x256?text=Car+Image';
+                            }}
+                        />
+                        {/* Optional gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
 
-                    {/* Author and CTA */}
-                    <div className="mt-4 flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
-                                By {author}
-                            </span>
+                    {/* Content Container */}
+                    <div className="flex-1 p-6 flex flex-col justify-between">
+                        <div className="space-y-4">
+                            {/* Title */}
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-gray-700 transition-colors duration-200">
+                                {title}
+                            </h2>
+
+                            {/* Author Info */}
+                            <div className="flex items-center space-x-3">
+                                <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                                    <span className="text-sm font-medium text-gray-600">
+                                        {author.charAt(0).toUpperCase()}
+                                    </span>
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    <span className="font-medium">{author}</span>
+                                    <span className="mx-1">•</span>
+                                    <span>2 minutes</span>
+                                </div>
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-gray-600 leading-relaxed line-clamp-3">
+                                {description}
+                            </p>
                         </div>
-                        <button
-                            className="text-blue-600 text-sm font-semibold hover:text-blue-800 transition-colors duration-200 flex items-center gap-1"
-                        >
-                            Read More
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
+
+                        {/* Bottom Section */}
+                        <div className="mt-6 flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                    Car Review
+                                </span>
+                            </div>
+
+                            <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition-colors duration-200">
+                                Read full article
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                {/* Hover Border Effect */}
-                <div
-                    className={`absolute inset-0 border-2 border-blue-500 rounded-2xl transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-                />
-            </div>
+            </article>
         </Link>
     );
 };
