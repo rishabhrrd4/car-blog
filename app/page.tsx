@@ -46,40 +46,11 @@ export default async function HomePage() {
             );
         });
 
+        // to check if I have no posts to display
+        // blogCards.length = 0;
+
         return (
             <div className="min-h-screen bg-white">
-                {/* Header */}
-                {/*<header className="bg-slate-900 text-white">*/}
-                {/*    <div className="container mx-auto px-4 py-4">*/}
-                {/*        <div className="flex items-center justify-between">*/}
-                {/*            /!* Logo *!/*/}
-                {/*            <div className="flex items-center space-x-2">*/}
-                {/*                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">*/}
-                {/*                    <span className="text-slate-900 font-bold text-sm">LOGO</span>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-
-                {/*            /!* Navigation *!/*/}
-                {/*            <nav className="hidden md:flex items-center space-x-8">*/}
-                {/*                <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>*/}
-                {/*                <a href="#" className="text-white hover:text-gray-300 transition-colors">Blogs</a>*/}
-                {/*                <a href="#" className="text-white hover:text-gray-300 transition-colors">About</a>*/}
-                {/*                <a href="#" className="text-white hover:text-gray-300 transition-colors">Contact Us</a>*/}
-                {/*                <button className="bg-white text-slate-900 px-4 py-2 rounded hover:bg-gray-100 transition-colors font-medium">*/}
-                {/*                    Subscribe*/}
-                {/*                </button>*/}
-                {/*            </nav>*/}
-
-                {/*            /!* Mobile menu button *!/*/}
-                {/*            <button className="md:hidden">*/}
-                {/*                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">*/}
-                {/*                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />*/}
-                {/*                </svg>*/}
-                {/*            </button>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</header>*/}
-
                 {/* Hero Section */}
                 <section className="bg-slate-900 text-white py-16 lg:py-24">
                     <div className="container mx-auto px-4">
@@ -137,7 +108,7 @@ export default async function HomePage() {
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
                             <h2 className="text-4xl font-bold text-gray-900 mb-4">All Posts</h2>
-                            <div className="w-20 h-1 bg-red-500 rounded"></div>
+                            <div className="w-[9.2rem] h-1 bg-red-500 rounded"></div>
                         </div>
 
                         <div className="flex flex-col  space-y-8">

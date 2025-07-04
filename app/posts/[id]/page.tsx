@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CarSpecs from "@/components/carSpecs";
+import Image from "next/image";
 
 interface Post {
     id: number;
@@ -33,17 +34,17 @@ export default async function PostDetailPage({ params }: Props) {
                 {/* Header */}
 
                 {/* Hero Image */}
-                <section className="relative h-96 md:h-[500px] overflow-hidden">
+                <section className="relative md:h-[500px] lg:h-[600px] overflow-hidden">
                     <img
                         src="/images/ducati.jpg"
                         alt="Classic blue car"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-center object-cover"
                     />
                     {/*<div className="absolute inset-0 bg-black bg-opacity-20"></div>*/}
                 </section>
 
                 {/* Main Content */}
-                <main className="container mx-auto px-4 py-12 max-w-4xl">
+                <main className="max-w-4xl w-full px-4 sm:px-6 lg:px-8 py-12 mx-auto">
                     <article className="space-y-8">
                         {/* Title */}
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
@@ -120,10 +121,12 @@ export default async function PostDetailPage({ params }: Props) {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Car Reviews"
-                                        className="w-12 h-12 rounded-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="rounded-full object-cover"
                                     />
                                 </div>
                                 <h3 className="font-semibold text-gray-900 mb-2">Car Reviews</h3>
@@ -134,10 +137,12 @@ export default async function PostDetailPage({ params }: Props) {
 
                             <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Maintenance Tips"
-                                        className="w-12 h-12 rounded-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="rounded-full object-cover"
                                     />
                                 </div>
                                 <h3 className="font-semibold text-gray-900 mb-2">Maintenance Tips</h3>
@@ -148,10 +153,12 @@ export default async function PostDetailPage({ params }: Props) {
 
                             <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Car Modifications"
-                                        className="w-12 h-12 rounded-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="rounded-full object-cover"
                                     />
                                 </div>
                                 <h3 className="font-semibold text-gray-900 mb-2">Car Modifications</h3>
@@ -162,10 +169,12 @@ export default async function PostDetailPage({ params }: Props) {
 
                             <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Driving Tips"
-                                        className="w-12 h-12 rounded-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="rounded-full object-cover"
                                     />
                                 </div>
                                 <h3 className="font-semibold text-gray-900 mb-2">Driving Tips</h3>

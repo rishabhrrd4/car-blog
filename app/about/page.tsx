@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 interface Author {
     name: string;
@@ -30,7 +31,7 @@ export default function AboutPage() {
     };
 
     return (
-        <div className="bg-gray-50">
+        <div className="bg-gray-50 overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative w-screen h-screen text-black overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 py-20">
@@ -60,38 +61,46 @@ export default function AboutPage() {
                         </div>
 
                         {/* Right Car Images Grid */}
-                        <div className="relative">
+                        <div className="relative mr-4">
                             <div className="grid grid-cols-2 gap-4">
                                 {/* Top Left */}
                                 <div className="aspect-square rounded-lg overflow-hidden">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=400&fit=crop"
                                         alt="Car"
-                                        className="w-full h-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover"
                                     />
                                 </div>
                                 {/* Top Right */}
                                 <div className="aspect-square rounded-lg overflow-hidden">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=400&fit=crop"
                                         alt="Car"
-                                        className="w-full h-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover"
                                     />
                                 </div>
                                 {/* Bottom Left */}
                                 <div className="aspect-square rounded-lg overflow-hidden">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&h=400&fit=crop"
                                         alt="Car"
-                                        className="w-full h-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover"
                                     />
                                 </div>
                                 {/* Bottom Right */}
                                 <div className="aspect-square rounded-lg overflow-hidden">
-                                    <img
+                                    <Image
                                         src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=400&h=400&fit=crop"
                                         alt="Car"
-                                        className="w-full h-full object-cover"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover"
                                     />
                                 </div>
                             </div>
@@ -168,10 +177,12 @@ export default function AboutPage() {
                         {/* Profile Image */}
                         <div className="flex-shrink-0">
                             <div className="w-48 h-48 rounded-full overflow-hidden bg-gray-200">
-                                <img
+                                <Image
                                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
                                     alt={`Profile picture of ${author.name}`}
-                                    className="w-full h-full object-cover"
+                                    width={400}
+                                    height={400}
+                                    className="object-cover"
                                 />
                             </div>
                         </div>
