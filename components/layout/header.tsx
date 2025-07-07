@@ -1,15 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import clsx from 'clsx';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/blog', label: 'Blog' },
+    {href: '/', label: 'Home'},
+    {href: '/about', label: 'About'},
+    {href: '/contact', label: 'Contact'},
+    {href: '/blog', label: 'Blog'},
 ];
 
 export default function Header() {
@@ -38,7 +38,8 @@ export default function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <button className="bg-white text-gray-800 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition">
+                    <button
+                        className="bg-white text-gray-800 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition">
                         Subscribe
                     </button>
                 </div>
@@ -50,7 +51,7 @@ export default function Header() {
                     aria-label="Toggle menu"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
@@ -75,7 +76,8 @@ export default function Header() {
                     ))}
 
                     {/* Subscribe Button (Mobile) */}
-                    <button className="w-full mt-2 bg-white text-gray-800 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition">
+                    <button
+                        className="w-full mt-2 bg-white text-gray-800 border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition">
                         Subscribe
                     </button>
                 </div>

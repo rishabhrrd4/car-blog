@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import {useState} from 'react';
+import Image from "next/image";
 
 interface CarPostCardProps {
     id: number;
@@ -30,19 +31,21 @@ const CarPostCard: React.FC<CarPostCardProps> = ({
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="flex flex-col md:flex-row">
-                    {/* Image Container */}
                     <div className="relative w-full md:w-80 h-48 md:h-64 flex-shrink-0 overflow-hidden">
-                        <img
+                        <Image
                             src={imageUrl}
                             alt={title}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            onError={(e) => {
-                                e.currentTarget.src = 'https://via.placeholder.com/320x256?text=Car+Image';
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            onError={() => {
+                                // You can log or update state here but not change src directly
+                                console.error('Image failed to load');
                             }}
                         />
-                        {/* Optional gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div
+                            className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
                     </div>
+
 
                     {/* Content Container */}
                     <div className="flex-1 p-6 flex flex-col justify-between">
@@ -75,12 +78,14 @@ const CarPostCard: React.FC<CarPostCardProps> = ({
                         {/* Bottom Section */}
                         <div className="mt-6 flex items-center justify-between">
                             <div className="flex items-center space-x-2">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                <span
+                                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
                                     Car Review
                                 </span>
                             </div>
 
-                            <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition-colors duration-200">
+                            <button
+                                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition-colors duration-200">
                                 Read full article
                             </button>
                         </div>

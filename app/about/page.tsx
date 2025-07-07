@@ -121,16 +121,17 @@ export default function AboutPage() {
                     <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
                         <p>
                             Welcome to our automotive world! This blog was created with a simple yet powerful mission:
-                            to be your trusted source for everything automotive. Whether you're a seasoned car
+                            to be your trusted source for everything automotive. Whether you&apos;re a seasoned car
                             enthusiast,
                             a first-time buyer, or someone who simply appreciates the art of automotive engineering,
-                            we're here to inform, inspire, and engage.
+                            we&apos;re here to inform, inspire, and engage.
                         </p>
                         <p>
                             We cover a wide spectrum of automotive topics, from in-depth vehicle reviews and comparisons
                             to breaking industry news and emerging trends. Our content is designed to help you make
-                            informed decisions, whether you're looking to purchase your next vehicle, understand the
-                            latest automotive technologies, or simply stay current with what's happening in the car
+                            informed decisions, whether you&apos;re looking to purchase your next vehicle, understand
+                            the
+                            latest automotive technologies, or simply stay current with what&apos;s happening in the car
                             world.
                         </p>
                         <p>

@@ -19,8 +19,8 @@ interface Props {
     params: { id: string };
 }
 
-export default async function PostDetailPage({ params }: Props) {
-    const { id } = params;
+export default async function PostDetailPage({params}: Props) {
+    const {id} = params;
 
     try {
         const postRes = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
@@ -71,7 +71,12 @@ export default async function PostDetailPage({ params }: Props) {
                             </h2>
 
                             <p className="text-gray-700 leading-relaxed mb-8">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo. Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque non.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque
+                                viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque
+                                penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo.
+                                Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque
+                                non.
                             </p>
 
                             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
@@ -79,11 +84,21 @@ export default async function PostDetailPage({ params }: Props) {
                             </h2>
 
                             <p className="text-gray-700 leading-relaxed mb-8">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo. Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque non.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque
+                                viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque
+                                penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo.
+                                Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque
+                                non.
                             </p>
 
                             <p className="text-gray-700 leading-relaxed mb-8">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo. Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque non.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque
+                                viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus. Sociis natoque
+                                penatibus et magnis dis parturient montes. Ridiculus mus mauris vitae ultricies leo.
+                                Neque egestas congue quisque egestas diam. Risus in hendrerit gravida rutrum quisque
+                                non.
                             </p>
 
                             {/* Bullet Points */}
@@ -105,7 +120,7 @@ export default async function PostDetailPage({ params }: Props) {
 
                         {/* Car Specs Component */}
                         <div className="my-12">
-                            <CarSpecs />
+                            <CarSpecs/>
                         </div>
                     </article>
                 </main>
@@ -119,8 +134,10 @@ export default async function PostDetailPage({ params }: Props) {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                            <div
+                                className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
+                                <div
+                                    className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                                     <Image
                                         src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Car Reviews"
@@ -135,8 +152,10 @@ export default async function PostDetailPage({ params }: Props) {
                                 </p>
                             </div>
 
-                            <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                            <div
+                                className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
+                                <div
+                                    className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                                     <Image
                                         src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Maintenance Tips"
@@ -151,8 +170,10 @@ export default async function PostDetailPage({ params }: Props) {
                                 </p>
                             </div>
 
-                            <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                            <div
+                                className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
+                                <div
+                                    className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                                     <Image
                                         src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Car Modifications"
@@ -167,8 +188,10 @@ export default async function PostDetailPage({ params }: Props) {
                                 </p>
                             </div>
 
-                            <div className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                            <div
+                                className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow">
+                                <div
+                                    className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
                                     <Image
                                         src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=64&h=64&auto=format&fit=crop"
                                         alt="Driving Tips"
@@ -194,7 +217,8 @@ export default async function PostDetailPage({ params }: Props) {
                 <div className="text-center">
                     <div className="text-red-500 text-6xl mb-4">⚠️</div>
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">Blog not found</h2>
-                    <p className="text-gray-600 mb-4">The blog post you're looking for doesn't exist or failed to load.</p>
+                    <p className="text-gray-600 mb-4">The blog post you&apos;re looking for doesn&apos;t exist or failed
+                        to load.</p>
                     <Link
                         href="/"
                         className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-colors"

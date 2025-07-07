@@ -1,56 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* Light gray-blue for a clean base */
-  --foreground: #1f2937; /* Dark gray for contrast */
-  --accent-color: #2563eb; /* Blue to match card's border and button */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --background: #f8fafc; /* Light gray-blue for a clean base */
+    --foreground: #1f2937; /* Dark gray for contrast */
+    --accent-color: #2563eb; /* Blue to match card's border and button */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
 }
 
 body {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); /* Gradient matching card's aesthetic */
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); /* Gradient matching card's aesthetic */
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
 }
 
 /* Subtle background texture */
 body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('/subtle-car-texture.png') repeat;
-  background-size: 400px;
-  opacity: 0.05; /* Very faint for subtlety */
-  z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/subtle-car-texture.png') repeat;
+    background-size: 400px;
+    opacity: 0.05; /* Very faint for subtlety */
+    z-index: -1;
 }
 
 /* Ensure content stands out */
 main {
-  position: relative;
-  z-index: 1;
-  /*padding: 2rem;*/
-  width: 100%; /* Use full width instead of max-width */
+    position: relative;
+    z-index: 1;
+    /*padding: 2rem;*/
+    width: 100%; /* Use full width instead of max-width */
 }
 
 /* Smooth transitions for interactive elements */
 a,
 button {
-  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 /* Typography enhancements */
@@ -60,14 +60,14 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--foreground);
-  font-weight: 600;
-  line-height: 1.2;
+    color: var(--foreground);
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  main {
-    padding: 1rem;
-  }
+    main {
+        padding: 1rem;
+    }
 }

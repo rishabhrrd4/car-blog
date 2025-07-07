@@ -13,13 +13,15 @@ export default function Footer() {
                         <a href="/contact" className="hover:text-gray-300 px-2 py-1">Contact</a>
                         <a href="/privacy" className="hover:text-gray-300 px-2 py-1">Privacy Policy</a>
                     </nav>
-                    <div className="mb-4 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-2">
+                    <div
+                        className="mb-4 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-2">
                         <input
                             type="email"
                             placeholder="example@email.com"
                             className="w-full md:w-auto px-4 py-2 rounded-l-md border border-gray-700 bg-gray-800 text-white"
                         />
-                        <button className="w-full md:w-auto bg-red-500 text-white px-4 py-2 rounded-r-md hover:bg-red-600">
+                        <button
+                            className="w-full md:w-auto bg-red-500 text-white px-4 py-2 rounded-r-md hover:bg-red-600">
                             Subscribe 🚗
                         </button>
                     </div>

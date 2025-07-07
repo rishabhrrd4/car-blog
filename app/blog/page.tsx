@@ -79,7 +79,11 @@ const CarBlogHomepage = () => {
 
     const categories = [
         {title: "Car Reviews", description: "Reviews of various car models.", icon: "/images/Ellipse 82.png"},
-        {title: "Maintenance Tips", description: "Tips to maintain your car better.", icon: "/images/Ellipse 82 (1).png"},
+        {
+            title: "Maintenance Tips",
+            description: "Tips to maintain your car better.",
+            icon: "/images/Ellipse 82 (1).png"
+        },
         {title: "Car Modifications", description: "All about tuning and mods.", icon: "/images/Ellipse 82 (2).png"},
         {title: "Driving Tips", description: "Become a safer and smarter driver.", icon: "/images/Ellipse 82 (3).png"},
     ];

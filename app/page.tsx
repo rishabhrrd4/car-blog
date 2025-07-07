@@ -46,9 +46,6 @@ export default async function HomePage() {
             );
         });
 
-        // to check if I have no posts to display
-        // blogCards.length = 0;
-
         return (
             <div className="min-h-screen bg-white">
                 {/* Hero Section */}
@@ -58,14 +55,17 @@ export default async function HomePage() {
                             {/* Left Content */}
                             <div className="space-y-8 ml-20">
                                 <h1 className="text-4xl !text-white md:text-5xl lg:text-6xl font-bold leading-tight">
-                                    Your Journey<br />
-                                    Your Car<br />
+                                    Your Journey<br/>
+                                    Your Car<br/>
                                     <span className="text-red-500">Your Way</span>
                                 </h1>
                                 <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
-                                    Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi elementum vel euismod aliquam. Amet ultricies neque augue consectetur pome phasellus. Ullamcorper lorem montes varius ornare vestibulum tellus facilisis consequat pretium.
+                                    Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi elementum vel euismod
+                                    aliquam. Amet ultricies neque augue consectetur pome phasellus. Ullamcorper lorem
+                                    montes varius ornare vestibulum tellus facilisis consequat pretium.
                                 </p>
-                                <button className="bg-red-500 text-white px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center gap-2 font-semibold">
+                                <button
+                                    className="bg-red-500 text-white px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center gap-2 font-semibold">
                                     Subscribe 🚗
                                 </button>
                             </div>
@@ -108,7 +108,7 @@ export default async function HomePage() {
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
                             <h2 className="text-4xl font-bold text-gray-900 mb-4">All Posts</h2>
-                            <div className="w-[9.2rem] h-1 bg-red-500 rounded"></div>
+                            <div className="w-20 h-1 bg-red-500 rounded"></div>
                         </div>
 
                         <div className="flex flex-col  space-y-8">
