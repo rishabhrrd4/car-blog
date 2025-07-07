@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CarSpecs from "@/components/carSpecs";
 import Image from "next/image";
+import {imageUrls} from "@/lib/imageMap";
 
 interface Post {
     id: number;
@@ -29,29 +30,27 @@ export default async function PostDetailPage({params}: Props) {
         const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
         const user: User = await userRes.json();
 
+        const postImage = imageUrls[(post.id - 1) % imageUrls.length];
+
         return (
             <div className="min-h-screen bg-white">
-                {/* Header */}
-
-                {/* Hero Image */}
                 <section className="relative md:h-[500px] lg:h-[600px] overflow-hidden">
-                    <img
-                        src="/images/ducati.jpg"
-                        alt="Classic blue car"
-                        className="w-full h-full object-center object-cover"
+                    <Image
+                        src={postImage}
+                        alt="car image"
+                        fill
+                        className="object-center object-cover"
+                        priority
                     />
                     {/*<div className="absolute inset-0 bg-black bg-opacity-20"></div>*/}
                 </section>
 
-                {/* Main Content */}
                 <main className="max-w-4xl w-full px-4 sm:px-6 lg:px-8 py-12 mx-auto">
                     <article className="space-y-8">
-                        {/* Title */}
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                             Classic Revival: Revisiting Iconic Cars Through Modern Reviews
                         </h1>
 
-                        {/* Author Info */}
                         <div className="flex items-center space-x-3">
                             <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
                                 <span className="text-lg font-medium text-gray-600">
@@ -64,7 +63,6 @@ export default async function PostDetailPage({params}: Props) {
                             </div>
                         </div>
 
-                        {/* Content Sections */}
                         <div className="prose prose-lg max-w-none">
                             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
@@ -101,7 +99,6 @@ export default async function PostDetailPage({params}: Props) {
                                 non.
                             </p>
 
-                            {/* Bullet Points */}
                             <ul className="space-y-2 mb-8">
                                 <li className="flex items-start space-x-2">
                                     <span className="text-gray-900 font-medium">•</span>
@@ -118,14 +115,12 @@ export default async function PostDetailPage({params}: Props) {
                             </ul>
                         </div>
 
-                        {/* Car Specs Component */}
                         <div className="my-12">
                             <CarSpecs/>
                         </div>
                     </article>
                 </main>
 
-                {/* All Category Section */}
                 <section className="bg-gray-50 py-16">
                     <div className="container mx-auto px-4">
                         <div className="mb-12">
@@ -211,7 +206,7 @@ export default async function PostDetailPage({params}: Props) {
             </div>
         );
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
                 <div className="text-center">

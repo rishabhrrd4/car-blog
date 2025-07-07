@@ -33,7 +33,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/subtle-car-texture.png') repeat;
+    /*background: url('/subtle-car-texture.png') repeat;*/
     background-size: 400px;
     opacity: 0.05; /* Very faint for subtlety */
     z-index: -1;
@@ -63,11 +63,4 @@ h6 {
     color: var(--foreground);
     font-weight: 600;
     line-height: 1.2;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-    }
 }

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
     return (
         <footer className="bg-gray-900 text-white py-6">
@@ -7,7 +9,7 @@ export default function Footer() {
                         <span className="text-xl font-bold">LOGO</span>
                     </div>
                     <nav className="space-x-4 mb-4 flex justify-center flex-wrap">
-                        <a href="/" className="hover:text-gray-300 px-2 py-1">Home</a>
+                        <Link href="/" className="hover:text-gray-300 px-2 py-1">Home</Link>
                         <a href="/blog" className="hover:text-gray-300 px-2 py-1">Blog</a>
                         <a href="/about" className="hover:text-gray-300 px-2 py-1">About</a>
                         <a href="/contact" className="hover:text-gray-300 px-2 py-1">Contact</a>

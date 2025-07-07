@@ -1,4 +1,10 @@
-import CarPostCard from "@/components/carPostCard";
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import CarPostCard from '@/components/carPostCard';
+import { imageUrls } from '@/lib/imageMap';
+import Image from 'next/image';
 
 interface Post {
     id: number;
@@ -12,121 +18,73 @@ interface User {
     name: string;
 }
 
-export default async function HomePage() {
-    const imageUrls = [
-        "https://images.unsplash.com/photo-1506610654-064fbba4780c?q=80&w=1470&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1470&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1470&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1470&auto=format&fit=crop",
-    ];
+export default function HomePage() {
+    const searchParams = useSearchParams();
+    const query = searchParams.get('q')?.toLowerCase() || '';
 
-    try {
-        const postsRes = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const usersRes = await fetch("https://jsonplaceholder.typicode.com/users");
+    const [posts, setPosts] = useState<Post[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-        if (!postsRes.ok || !usersRes.ok) throw new Error("Failed to fetch data");
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [postsRes, usersRes] = await Promise.all([
+                    fetch('https://jsonplaceholder.typicode.com/posts'),
+                    fetch('https://jsonplaceholder.typicode.com/users'),
+                ]);
 
-        const posts: Post[] = await postsRes.json();
-        const users: User[] = await usersRes.json();
+                if (!postsRes.ok || !usersRes.ok) throw new Error('Failed to fetch');
 
-        const blogCards = posts.slice(0, 10).map((post, index) => {
-            const author = users.find((user) => user.id === post.userId)?.name || "Unknown";
-            const imageUrl = imageUrls[index % imageUrls.length] + "?w=600&h=400&auto=format&fit=crop";
+                const postsData: Post[] = await postsRes.json();
+                const usersData: User[] = await usersRes.json();
 
-            return (
-                <CarPostCard
-                    key={post.id}
-                    id={post.id}
-                    title={post.title}
-                    description={post.body.slice(0, 100) + "..."}
-                    author={author}
-                    imageUrl={imageUrl}
-                />
-            );
-        });
+                setPosts(postsData.slice(0, 10));
+                setUsers(usersData);
+            } catch (err) {
+                console.error(err);
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const filteredPosts = posts.filter(
+        (post) =>
+            post.title.toLowerCase().includes(query) ||
+            post.body.toLowerCase().includes(query)
+    );
+
+    const blogCards = filteredPosts.map((post, index) => {
+        const author = users.find((user) => user.id === post.userId)?.name || 'Unknown';
+        const imageUrl =
+            imageUrls[index % imageUrls.length] + '?w=600&h=400&auto=format&fit=crop';
 
         return (
-            <div className="min-h-screen bg-white">
-                {/* Hero Section */}
-                <section className="bg-slate-900 text-white py-16 lg:py-24">
-                    <div className="container mx-auto px-4">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-                            {/* Left Content */}
-                            <div className="space-y-8 ml-20">
-                                <h1 className="text-4xl !text-white md:text-5xl lg:text-6xl font-bold leading-tight">
-                                    Your Journey<br/>
-                                    Your Car<br/>
-                                    <span className="text-red-500">Your Way</span>
-                                </h1>
-                                <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
-                                    Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi elementum vel euismod
-                                    aliquam. Amet ultricies neque augue consectetur pome phasellus. Ullamcorper lorem
-                                    montes varius ornare vestibulum tellus facilisis consequat pretium.
-                                </p>
-                                <button
-                                    className="bg-red-500 text-white px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center gap-2 font-semibold">
-                                    Subscribe 🚗
-                                </button>
-                            </div>
-
-                            {/* Right Image Grid */}
-                            <div className="hidden lg:block mr-20">
-                                <div className="grid grid-cols-2 gap-4 max-w-lg ml-auto">
-                                    <div className="space-y-4">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=400&h=280&auto=format&fit=crop"
-                                            alt="Sports Car"
-                                            className="w-full h-48 object-cover rounded-lg shadow-lg"
-                                        />
-                                        <img
-                                            src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=400&h=320&auto=format&fit=crop"
-                                            alt="Luxury Car"
-                                            className="w-full h-56 object-cover rounded-lg shadow-lg"
-                                        />
-                                    </div>
-                                    <div className="space-y-4 pt-8">
-                                        <img
-                                            src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=400&h=320&auto=format&fit=crop"
-                                            alt="Classic Car"
-                                            className="w-full h-56 object-cover rounded-lg shadow-lg"
-                                        />
-                                        <img
-                                            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&h=280&auto=format&fit=crop"
-                                            alt="Modern Car"
-                                            className="w-full h-48 object-cover rounded-lg shadow-lg"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Blog Section */}
-                <section className="py-16 bg-white">
-                    <div className="container mx-auto px-4">
-                        <div className="mb-12">
-                            <h2 className="text-4xl font-bold text-gray-900 mb-4">All Posts</h2>
-                            <div className="w-20 h-1 bg-red-500 rounded"></div>
-                        </div>
-
-                        <div className="flex flex-col  space-y-8">
-                            {blogCards.length > 0 ? blogCards : (
-                                <p className="text-center text-gray-500 py-12">No posts available.</p>
-                            )}
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <CarPostCard
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                description={post.body.slice(0, 100) + '...'}
+                author={author}
+                imageUrl={imageUrl}
+            />
         );
-    } catch (error) {
+    });
+
+    if (error) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
                 <div className="text-center">
                     <div className="text-red-500 text-6xl mb-4">⚠️</div>
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h2>
-                    <p className="text-gray-600 mb-4">Failed to load posts. Please try again later.</p>
+                    <p className="text-gray-600 mb-4">
+                        Failed to load posts. Please try again later.
+                    </p>
                     <button
                         onClick={() => window.location.reload()}
                         className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-colors"
@@ -137,4 +95,94 @@ export default async function HomePage() {
             </div>
         );
     }
+
+    return (
+        <div className="min-h-screen bg-white">
+            {/* Hero Section */}
+            <section className="bg-slate-900 text-white py-16 lg:py-24">
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-8 md:ml-20 sm: ml-5">
+                            <h1 className="text-4xl !text-white md:text-5xl lg:text-6xl font-bold leading-tight">
+                                Your Journey
+                                <br />
+                                Your Car
+                                <br />
+                                <span className="text-red-500">Your Way</span>
+                            </h1>
+                            <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
+                                Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi elementum vel euismod
+                                aliquam. Amet ultricies neque augue consectetur pome phasellus.
+                            </p>
+                            <button className="bg-red-500 text-white px-8 py-4 rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center gap-2 font-semibold">
+                                Subscribe 🚗
+                            </button>
+                        </div>
+
+                        {/* Right Image Grid */}
+                        <div className="hidden lg:block mr-20">
+                            <div className="grid grid-cols-2 gap-4 max-w-lg ml-auto">
+                                <div className="space-y-4">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=400&h=280&auto=format&fit=crop"
+                                        alt="Sports Car"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover rounded-lg shadow-lg"
+                                    />
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=400&h=320&auto=format&fit=crop"
+                                        alt="Luxury Car"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover rounded-lg shadow-lg"
+                                    />
+                                </div>
+                                <div className="space-y-4 pt-8">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=400&h=320&auto=format&fit=crop"
+                                        alt="Classic Car"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover rounded-lg shadow-lg"
+                                    />
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&h=280&auto=format&fit=crop"
+                                        alt="Modern Car"
+                                        width={400}
+                                        height={400}
+                                        className="object-cover rounded-lg shadow-lg"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Blog Section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="mb-12">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">All Posts</h2>
+                        <div className="w-20 h-1 bg-red-500 rounded"></div>
+                    </div>
+
+                    {loading ? (
+                        <p className="text-center text-gray-500 py-12">Loading posts...</p>
+                    ) : (
+                        <div className="flex flex-col space-y-8">
+                            {blogCards.length > 0 ? (
+                                blogCards
+                            ) : (
+                                <p className="text-center text-gray-500 py-12">
+                                    No posts found for &quot;{query}&quot;.
+                                </p>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </section>
+        </div>
+    );
 }
